@@ -48,4 +48,15 @@ $(document).ready(function () {
     },
     contentType: 'application/json'
   });
+  $('button').click(function () {
+    $.ajax({
+      type: 'POST',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      data: JSON.stringify({ amenities: amenityIDList }),
+      success: function (responseData, textStatus) {
+        console.log(responseData);
+      },
+      contentType: 'application/json'
+    });
+  });
 });
